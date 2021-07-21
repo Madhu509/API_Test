@@ -1,4 +1,5 @@
-﻿using BillingOrders.API;
+﻿using System.Net;
+using BillingOrders.API;
 using FluentAssertions;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -11,13 +12,70 @@ namespace BillingOrders
 {
     public class Tests
     {
-
+        BillingOrderAPI billingOrderApi;
 
         [SetUp]
         public void Setup()
         {
-
+            billingOrderApi = new BillingOrderAPI();
         }
+
+        [Test]
+        public void CreateOrderTestCase()
+        {
+            var expectedOrder = new BillingOrder
+            {
+                addressLine1 = "Auckland1",
+                addressLine2 = "Auckland2",
+                city = "Ak",
+                comment = "test",
+                email = "madhurima.atla@gmail.com",
+                firstName = "madhurima",
+                lastName = "atla",
+                phone = "0223456789",
+                zipCode = "123123",
+                itemNumber = 1,
+                state = "AL"
+
+            };
+
+            string jsonbody = JsonConvert.SerializeObject(expectedOrder);
+
+            IRestResponse response = billingOrderApi.PostOrder(jsonbody);
+            TestContext.WriteLine(response.Content);
+
+            //Assertions
+
+            BillingOrder actualOrder = JsonConvert.DeserializeObject<BillingOrder>(response.Content);
+
+            //cleanup
+
+            id = actualOrder.id + "";
+
+            //comparing only one value
+
+            Assert.AreEqual(expectedOrder.firstName, actualOrder.firstName);
+
+
+            expectedOrder.Should().BeEquivalentTo(actualOrder,
+            options => options
+            .Excluding(o => o.id));
+
+            //multiple assertions
+            Assert.AreEqual(response.StatusCode, "Created");
+            Assert.True(response.IsSuccessful);
+        }
+
+        /* [Test]
+         public void multipleAssertionTest()
+         {
+             Assert.Multiple(() =>
+             {
+                 Assert.AreEqual(5, 2, "Real part");
+                 Assert.AreEqual(3, 9, "Imaginary part");
+             });
+         }*/
+
 
         [Test]
         public void TC_GetOrderById()
@@ -164,4 +222,5 @@ namespace BillingOrders
 
     }
 }
+
 
