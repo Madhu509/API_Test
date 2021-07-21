@@ -1,0 +1,254 @@
+newman
+
+Billing Order_TC
+
+Iteration 1/10
+
+❏ Create_TC
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 108ms]
+  ┌
+  │ 'madhu'
+  │ 24
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/24 [200 OK, 351B, 10ms]
+  ✓  Create TestCases
+
+Iteration 2/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 17ms]
+  ┌
+  │ 'madhu'
+  │ 25
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/25 [200 OK, 351B, 8ms]
+  ✓  Create TestCases
+
+Iteration 3/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 17ms]
+  ┌
+  │ 'madhu'
+  │ 26
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/26 [200 OK, 351B, 9ms]
+  ✓  Create TestCases
+
+Iteration 4/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 11ms]
+  ┌
+  │ 'madhu'
+  │ 27
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/27 [200 OK, 351B, 6ms]
+  ✓  Create TestCases
+
+Iteration 5/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 12ms]
+  ┌
+  │ 'madhu'
+  │ 28
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/28 [200 OK, 351B, 9ms]
+  ✓  Create TestCases
+
+Iteration 6/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 17ms]
+  ┌
+  │ 'madhu'
+  │ 29
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/29 [200 OK, 351B, 7ms]
+  ✓  Create TestCases
+
+Iteration 7/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 15ms]
+  ┌
+  │ 'madhu'
+  │ 30
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/30 [200 OK, 351B, 8ms]
+  ✓  Create TestCases
+
+Iteration 8/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 15ms]
+  ┌
+  │ 'madhu'
+  │ 31
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/31 [200 OK, 351B, 8ms]
+  ✓  Create TestCases
+
+Iteration 9/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 15ms]
+  ┌
+  │ 'madhu'
+  │ 32
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/32 [200 OK, 351B, 11ms]
+  ✓  Create TestCases
+
+Iteration 10/10
+
+↳ create billing orders
+  POST http://localhost:8080/BillingOrder [200 OK, 351B, 15ms]
+  ┌
+  │ 'madhu'
+  │ 33
+  │ 'atla'
+  │ 'madhu.atla@gmail.com'
+  │ '0223456789'
+  │ 'nnnn'
+  │ '123456'
+  │ 'aaaa'
+  │ 'bbbb'
+  │ 0
+  │ 'Test'
+  │ 'AL'
+  └
+
+↳ Read Billing orders
+  GET http://localhost:8080/BillingOrder/33 [200 OK, 351B, 10ms]
+  ✓  Create TestCases
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                10 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                20 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                20 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 0 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                10 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 674ms                                      │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 4.32KB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 16ms [min: 6ms, max: 108ms, s.d.: 21ms] │
+└────────────────────────────────────────────────────────────────┘

@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "3d81733c-854e-4ce5-8a8c-c55e76c3549c",
+		"name": "Billing Order_TC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create_TC",
+			"item": [
+				{
+					"name": "create billing orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"id\", jsonData.id);\r",
+									"pm.environment.set(\"fName\", jsonData.firstName);\r",
+									"pm.environment.set(\"lName\", jsonData.lastName);\r",
+									"pm.environment.set(\"Email1\", jsonData.email);\r",
+									"pm.environment.set(\"Phone1\", jsonData.phone);\r",
+									"pm.environment.set(\"City1\", jsonData.city);\r",
+									"pm.environment.set(\"zipcode1\", jsonData.zipCode);\r",
+									"pm.environment.set(\"Address\", jsonData.addressLine1);\r",
+									"pm.environment.set(\"Address1\", jsonData.addressLine2);\r",
+									"pm.environment.set(\"item1\", jsonData.itemNumber);\r",
+									"pm.environment.set(\"Comment1\", jsonData.comment);\r",
+									"pm.environment.set(\"State1\", jsonData.state);\r",
+									"console.log(jsonData.firstName);\r",
+									"console.log(jsonData.id);\r",
+									"console.log(jsonData.lastName);\r",
+									"console.log(jsonData.email);\r",
+									"console.log(jsonData.phone);\r",
+									"console.log(jsonData.city);\r",
+									"console.log(jsonData.zipCode);\r",
+									"console.log(jsonData.addressLine1);\r",
+									"console.log(jsonData.addressLine2);\r",
+									"console.log(jsonData.itemNumber);\r",
+									"console.log(jsonData.comment);\r",
+									"console.log(jsonData.state);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"firstName\": \"madhu\",\r\n  \"lastName\": \"atla\",\r\n  \"email\": \"madhu.atla@gmail.com\",\r\n  \"phone\": \"0223456789\",\r\n  \"city\": \"nnnn\",\r\n  \"zipCode\": \"123456\",\r\n  \"addressLine1\": \"aaaa\",\r\n  \"addressLine2\": \"bbbb\",\r\n  \"itemNumber\": 0,\r\n  \"comment\": \"Test\",\r\n  \"state\": \"AL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}:{{port}}/BillingOrder",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"BillingOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Billing orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create TestCases\", function () {\r",
+									"    var Data = pm.response.json();\r",
+									"    pm.expect(Data.id).to.eql(pm.environment.get(\"id\"));\r",
+									"    pm.expect(Data.firstName).to.eql(pm.environment.get(\"fName\"));\r",
+									"    pm.expect(Data.lastName).to.eql(pm.environment.get(\"lName\"));\r",
+									"    pm.expect(Data.email).to.eql(pm.environment.get(\"Email1\"));\r",
+									"    pm.expect(Data.phone).to.eql(pm.environment.get(\"Phone1\"));\r",
+									"    pm.expect(Data.city).to.eql(pm.environment.get(\"City1\"));\r",
+									"    pm.expect(Data.zipCode).to.eql(pm.environment.get(\"zipcode1\"));\r",
+									"    pm.expect(Data.addressLine1).to.eql(pm.environment.get(\"Address\"));\r",
+									"    pm.expect(Data.addressLine2).to.eql(pm.environment.get(\"Address1\"));\r",
+									"    pm.expect(Data.itemNumber).to.eql(pm.environment.get(\"item1\"));\r",
+									"    pm.expect(Data.comment).to.eql(pm.environment.get(\"Comment1\"));\r",
+									"    pm.expect(Data.state).to.eql(pm.environment.get(\"State1\"));\r",
+									"    \r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/BillingOrder/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"BillingOrder",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
