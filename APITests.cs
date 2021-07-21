@@ -1,5 +1,10 @@
 ﻿using BillingOrders.API;
+using FluentAssertions;
+using Newtonsoft.Json;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using Postman.DataObjects;
 using RestSharp;
 
 namespace BillingOrders
@@ -36,18 +41,69 @@ namespace BillingOrders
         [Test]
         public void TC_PostOrder()
         {
-            for (int i = 1; i <= 100; i++)
+
+            //data object
+
+            var expectedOrder = new BillingOrder
             {
-                string body = $"{{\"addressLine1\":\"auckland{i}\", \"addressLine2\":\"nz{i}\", \"city\":\"penrose\", \"comment\":\"testing\", \"email\":\"madhurima.atla@gmail.com\", \"firstName\":\"naina{i}\", \"itemNumber\":0, \"lastName\":\"atla{i}\", \"phone\":\"0223065400\", \"state\":\"AL\", \"zipCode\":\"123123\"}}";
+                addressLine1 = "Auckland1",
+                addressLine2 = "Auckland2",
+                city = "Ak",
+                comment = "test",
+                email = "madhurima.atla@gmail.com",
+                firstName = "madhurima",
+                lastName = "atla",
+                phone = "0223456789",
+                zipCode = "123123",
+                itemNumber = 1,
+                state = "AL"
 
-                BillingOrderAPI billingOrder = new BillingOrderAPI();
+            };
 
-                IRestResponse response = billingOrder.PostOrder(body);
-                TestContext.WriteLine(response.Content);
+            string jsonbody = JsonConvert.SerializeObject(expectedOrder);
 
-                //Assertions pending
+            BillingOrderAPI billingOrderApi = new BillingOrderAPI();
+
+            IRestResponse response = billingOrderApi.PostOrder(jsonbody);
+            TestContext.WriteLine(response.Content);
+
+            //Assertions
+
+            BillingOrder actualOrder = JsonConvert.DeserializeObject<BillingOrder>(response.Content);
+            id = actualOrder.id + "";
+            //comparing only one value
+
+            Assert.AreEqual(expectedOrder.firstName, actualOrder.firstName);
+
+            //Hack
+
+            //expectedOrder.id = actualorder.id;
+
+            //ignoring
+
+
+            expectedOrder.Should().BeEquivalentTo(actualOrder,
+            options => options
+            .Excluding(o => o.id));
+
+            //cleanup
+
+            // billingOrderApi.DeleteOrderById(actualOrder.id + "id");
+
+        }
+        string id = null;
+        [TearDown]
+        public void Cleanup()
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                BillingOrderAPI billingOrderApi = new BillingOrderAPI();
+                billingOrderApi.DeleteOrderById(id);
+                id = null;
             }
         }
+
+
 
         [Test]
         public void TC_GetAllRecords()
@@ -71,6 +127,38 @@ namespace BillingOrders
             TestContext.WriteLine(response.Content);
 
             //Assertions pending
+        }
+
+        IWebDriver driver = new ChromeDriver();
+
+        //data object
+
+        BillingOrder expectedOrder = new BillingOrder
+        {
+            addressLine1 = "Auckland1",
+            addressLine2 = "Auckland2",
+            city = "Ak",
+            comment = "test",
+            email = "madhurima.atla@gmail.com",
+            firstName = "madhurima",
+            lastName = "atla",
+            phone = "0223456789",
+            zipCode = "123123",
+            itemNumber = 1,
+            state = "AL"
+
+        };
+
+        [Test]
+        public void TC_UI_Test()
+        {
+
+            BillingOrderPage orderPage = new BillingOrderPage(driver);
+            orderPage.SubmitBillingOrder(expectedOrder);
+
+            //Assertion
+
+
         }
 
 
