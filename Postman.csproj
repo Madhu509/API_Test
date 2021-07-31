@@ -19,6 +19,8 @@
     <PackageReference Include="SpecFlow" Version="3.9.8" />
     <PackageReference Include="SpecFlow.NUnit" Version="3.9.8" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.8" />
+    <PackageReference Include="Faker.Net" Version="1.5.138" />
+    <PackageReference Include="LumenWorksCsvReader" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,17 +32,21 @@
     <None Remove="Model\" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="FluentAssertions" />
-    <None Remove="TestIDE\" />
     <None Remove="SpecFlow" />
     <None Remove="SpecFlow.NUnit" />
     <None Remove="SpecFlow.Tools.MsBuild.Generation" />
-    <None Remove="SpecFlow\" />
+    <None Remove="Utilities\" />
+    <None Remove="Faker.Net" />
+    <None Remove="LumenWorksCsvReader" />
+    <None Remove="TestData\" />
+    <None Remove="UI Test\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
     <Folder Include="DataObjects\" />
-    <Folder Include="TestIDE\" />
-    <Folder Include="SpecFlow\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="TestData\" />
+    <Folder Include="UI Test\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="SpecFlow\Specflow.feature">
@@ -54,10 +60,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SpecFlow1.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="SpecFlow\SpecFlow1.feature.cs">
-      <DependentUpon>SpecFlow1.feature</DependentUpon>
-    </Compile>
+    <SpecFlowFeatureFiles Update="SpecFlow\number.feature">
+      <Visible>False</Visible>
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>number.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>
